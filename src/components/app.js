@@ -12,18 +12,17 @@ import Contact from "./pages/contact.js"
 import Blog from "./pages/blog.js"
 import PortfolioDetail from "./portfolio/portfolio-detail"
 import NoMatch from "./pages/no-match.js"
-import { bind } from 'file-loader';
 
 
 export default class App extends Component {
   constructor(){
     super();
 
-    this.getPortFolioItems = this.getPortFolioItems.bind(this);
+    this.getPortfolioItems = this.getPortfolioItems.bind(this);
   }
   getPortfolioItems() {
     axios
-      .get("https://jordan.devcamp.space/portfolio/portfolio_items")
+      .get("https://inakimartinez.devcamp.space/portfolio/portfolio_items")
       .then(response => {
         console.log("response data", response);
       })
@@ -32,7 +31,7 @@ export default class App extends Component {
       });
   }
   render() {
-    //this.getPortFolioItems();
+    this.getPortfolioItems();
     return (
       <div className='app'>
 
