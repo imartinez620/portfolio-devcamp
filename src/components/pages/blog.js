@@ -47,7 +47,7 @@ class Blog extends Component {
         this.setState({
             currentPage: this.state.currentPage
         });
-
+        //https://inakimartinez.devcamp.space/portfolio/portfolio_items
         axios
             .get(`https://inakimartinez.devcamp.space/portfolio/portfolio_blogs?page=${this.state.currentPage}`, {
                 withCredentials: true
@@ -100,11 +100,15 @@ class Blog extends Component {
                     handleSuccessfulNewBlogSubmission={this.handleSuccessfulNewBlogSubmission}
                     handleModalClose={this.handleModalClose}
                     modalIsOpen={this.state.blogModalIsOpen} />
-                <div className='new-blog-link'>
-                    <a onClick={this.handleNewBlogClick}>
-                        Open Modal on Click
-                    </a>
-                </div>
+
+                {this.props.loggedInStatus === "LOGGED_IN" ?
+                    <div className='new-blog-link'>
+                        <a onClick={this.handleNewBlogClick}>
+                            <FontAwesomeIcon icon="plus-circle" />
+                        </a>
+                    </div> : null
+                }
+
                 {this.state.isLoading ? (
                     <div className="content-loader">
                         <FontAwesomeIcon icon="spinner" spin />
