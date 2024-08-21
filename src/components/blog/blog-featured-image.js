@@ -6,10 +6,10 @@ const BlogFeaturedImage = (props) => {
     }
 
     return (
-        featured_image_url ?
-            <div className="featured-image-wrapper">
-                < img src={props.img} />
-            </div > : null
+
+        <div className="featured-image-wrapper">
+            < img src={props.img} />
+        </div >
 
     )
 }
